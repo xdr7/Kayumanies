@@ -1,0 +1,169 @@
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                              KAYUMANIES CAKE SHOP                                │
+│                           Entity Relationship Diagram                            │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+                                        ┌──────────────┐
+                                        │   settings   │
+                                        ├──────────────┤
+                                        │ id (PK)      │
+                                        │ setting_key  │
+                                        │ setting_value│
+                                        │ created_at   │
+                                        │ updated_at   │
+                                        └──────────────┘
+
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│    users     │       │  categories  │       │    promos    │
+├──────────────┤       ├──────────────┤       ├──────────────┤
+│ id (PK)      │       │ id (PK)      │       │ id (PK)      │
+│ username     │       │ name         │       │ code         │
+│ email        │       │ slug         │       │ name         │
+│ password     │       │ description  │       │ description  │
+│ full_name    │       │ image        │       │ discount_type│
+│ phone        │       │ is_active    │       │ discount_val │
+│ address      │       │ sort_order   │       │ min_purchase │
+│ role ────────┼──┐    │ created_at   │       │ start_date   │
+│ avatar       │  │    │ updated_at   │       │ end_date     │
+│ is_active    │  │    └──────┬───────┘       │ usage_limit  │
+│ last_login   │  │           │               │ usage_count  │
+│ created_at   │  │           │               │ is_active    │
+│ updated_at   │  │           │               │ created_at   │
+└──────┬───────┘  │           │               └──────────────┘
+       │          │           │
+       │          │           │
+       │    ┌─────┘           └────────┐
+       │    │                          │
+       │    │           ┌──────────────┴───────────┐
+       │    │           │         products          │
+       │    │           ├───────────────────────────┤
+       │    │           │ id (PK)                   │
+       │    │           │ category_id (FK)──────────┼──→ categories.id
+       │    │           │ name                      │
+       │    │           │ slug                      │
+       │    │           │ description               │
+       │    │           │ price                     │
+       │    │           │ discount_price            │
+       │    │           │ stock                     │
+       │    │           │ weight                    │
+       │    │           │ image                     │
+       │    │           │ is_featured               │
+       │    │           │ is_active                 │
+       │    │           │ created_at                │
+       │    │           │ updated_at                │
+       │    │           └────────────┬──────────────┘
+       │    │                        │
+       │    │                        │
+       │    │           ┌────────────┴───────────┐
+       │    │           │         cart           │
+       │    │           ├────────────────────────┤
+       │    │           │ id (PK)                │
+       │    ├───────────┼── user_id (FK)         │
+       │    │           │ product_id (FK)────────┼──→ products.id
+       │    │           │ quantity               │
+       │    │           │ notes                  │
+       │    │           │ created_at             │
+       │    │           │ updated_at             │
+       │    │           └────────────────────────┘
+       │    │
+       │    │           ┌─────────────────────────────────────┐
+       │    │           │              orders                 │
+       │    │           ├─────────────────────────────────────┤
+       │    ├───────────┼── user_id (FK)                      │
+       │    │           │ order_number                        │
+       │    │           │ cashier_id (FK)─────────────────────┼──→ users.id
+       │    │           │ total_amount                        │
+       │    │           │ discount_amount                     │
+       │    │           │ promo_code ─────────────────────────┼──→ promos.code
+       │    │           │ final_amount                        │
+       │    │           │ payment_method                      │
+       │    │           │ payment_status                      │
+       │    │           │ order_status                        │
+       │    │           │ pickup_date                         │
+       │    │           │ pickup_time                         │
+       │    │           │ notes                               │
+       │    │           │ customer_name                       │
+       │    │           │ customer_phone                      │
+       │    │           │ created_at                          │
+       │    │           │ updated_at                          │
+       │    │           └──────────┬──────────────────────────┘
+       │    │                      │
+       │    │           ┌──────────┴──────────────┐
+       │    │           │    order_details        │
+       │    │           ├─────────────────────────┤
+       │    │           │ id (PK)                 │
+       │    │           │ order_id (FK)───────────┼──→ orders.id
+       │    │           │ product_id (FK)─────────┼──→ products.id
+       │    │           │ product_name            │
+       │    │           │ price                   │
+       │    │           │ quantity                │
+       │    │           │ subtotal                │
+       │    │           │ notes                   │
+       │    │           └─────────────────────────┘
+       │    │
+       │    │           ┌─────────────────────────┐
+       │    │           │       payments          │
+       │    │           ├─────────────────────────┤
+       │    │           │ id (PK)                 │
+       │    │           │ order_id (FK)───────────┼──→ orders.id
+       │    ├───────────┼── verified_by (FK)      │
+       │    │           │ amount                  │
+       │    │           │ payment_method          │
+       │    │           │ payment_proof           │
+       │    │           │ payment_status          │
+       │    │           │ payment_date            │
+       │    │           │ verified_at             │
+       │    │           │ notes                   │
+       │    │           └─────────────────────────┘
+       │    │
+       │    │           ┌─────────────────────────┐
+       │    │           │       reviews           │
+       │    │           ├─────────────────────────┤
+       │    ├───────────┼── user_id (FK)          │
+       │    │           │ product_id (FK)─────────┼──→ products.id
+       │    │           │ order_id (FK)───────────┼──→ orders.id
+       │    │           │ rating                  │
+       │    │           │ comment                 │
+       │    │           │ is_approved             │
+       │    │           │ created_at              │
+       │    │           └─────────────────────────┘
+       │    │
+       │    │           ┌─────────────────────────────────┐
+       │    │           │         notifications           │
+       │    │           ├─────────────────────────────────┤
+       │    ├───────────┼── user_id (FK)                  │
+       │    │           │ title                           │
+       │    │           │ message                         │
+       │    │           │ type (order/payment/system)     │
+       │    │           │ is_read                         │
+       │    │           │ link                            │
+       │    │           │ created_at                      │
+       │    │           └─────────────────────────────────┘
+       │    │
+       │    │           ┌─────────────────────────────────┐
+       │    │           │        activity_log             │
+       │    │           ├─────────────────────────────────┤
+       │    ├───────────┼── user_id (FK)                  │
+       │    │           │ action                          │
+       │    │           │ description                     │
+       │    │           │ ip_address                      │
+       │    │           │ created_at                      │
+       │    │           └─────────────────────────────────┘
+       │    │
+       │    ▼
+┌──────┴──────────────┐
+│  payment_methods    │
+├─────────────────────┤
+│ id (PK)             │
+│ name                │
+│ type (bank/qris)    │
+│ account_number      │
+│ account_name        │
+│ bank_name           │
+│ qris_image          │
+│ instructions        │
+│ is_active           │
+│ sort_order          │
+│ created_at          │
+│ updated_at          │
+└─────────────────────┘

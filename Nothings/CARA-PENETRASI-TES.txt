@@ -1,0 +1,31 @@
+CARA PENGGUNAAN:
+
+    Upload security-test.php ke root folder kayumanies
+
+    Buka browser: http://localhost/kayumanies/security-test.php?pw=kayumanies123
+
+    Lihat hasil scan - Akan muncul score keamanan & rekomendasi
+
+    HAPUS FILE INI setelah selesai!
+
+Yang dicek:
+
+    ✅ File permissions (install.php, database.php)
+
+    ✅ Upload folder (bisa eksekusi PHP?)
+
+    ✅ Password admin default
+
+    ✅ SQL Injection (prepared statements)
+
+    ✅ Security headers (.htaccess)
+
+    ✅ Session security
+
+    ✅ PHP configuration
+
+    ✅ XSS protection (htmlspecialchars)
+
+    ✅ Database privileges
+
+Score 80+ = Aman, 50-79 = Perlu perbaikan, <50 = Rentan! 🔒

@@ -1,0 +1,34 @@
+# ============================================
+# KAYUMANIES - Assets Protection
+# ============================================
+
+# Disable PHP execution
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+
+# Allow static files
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff2|ttf|json|xml)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Block scripts
+<FilesMatch "\.(php|php7|phtml|pht|phar)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Cache headers
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+Options -Indexes

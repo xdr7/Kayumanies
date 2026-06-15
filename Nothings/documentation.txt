@@ -1,0 +1,421 @@
+DOKUMENTASI ADMIN & KASIR - KAYUMANIES CAKE SHOP
+📊 DOKUMENTASI PANEL ADMIN
+Akses Admin
+text
+
+URL: http://localhost/kayumanies/modules/auth/login.php
+Username: admin
+Password: admin123
+Role: admin
+
+1. DASHBOARD ADMIN
+
+File: modules/admin/dashboard.php
+
+Fitur:
+
+    Statistik real-time (pesanan hari ini, pendapatan, stok menipis)
+
+    Grafik penjualan bulanan (6 bulan terakhir)
+
+    Pesanan terbaru (5 terakhir)
+
+    Pelanggan baru
+
+    Produk terlaris
+
+    Ringkasan bisnis
+
+2. MANAJEMEN PESANAN
+
+File: modules/admin/orders.php | modules/admin/order-detail.php
+
+Fitur:
+Aksi	Keterangan
+Filter	Berdasarkan status, pembayaran, tanggal, search
+Update Status	pending → processing → ready → completed
+Verifikasi Pembayaran	Konfirmasi pembayaran manual
+Detail Pesanan	Lihat item, pelanggan, pembayaran
+Hapus/Cancel	Batalkan pesanan
+
+Flow Pesanan:
+text
+
+pending (menunggu bayar) → processing (diproses) → ready (siap ambil) → completed (selesai)
+                                                         ↓
+                                                    cancelled (dibatalkan)
+
+3. MANAJEMEN PRODUK
+
+File: modules/admin/products.php
+
+Fitur CRUD:
+Aksi	Keterangan
+Create	Tambah produk baru (nama, harga, kategori, stok, gambar)
+Read	Lihat semua produk dalam tabel
+Update	Edit produk via modal, upload gambar baru
+Delete	Soft delete (set is_active = 0)
+
+Upload Gambar:
+
+    Format: JPG, PNG, GIF, WEBP
+
+    Maks: 5MB
+
+    Disimpan di: assets/uploads/products/
+
+    Gambar lama otomatis dihapus saat update
+
+4. MANAJEMEN KATEGORI
+
+File: modules/admin/categories.php
+
+Fitur:
+
+    Tambah kategori baru (nama, deskripsi, sort order)
+
+    Toggle aktif/nonaktif dengan 1 klik (select dropdown)
+
+    Edit kategori via modal
+
+    Hapus kategori (produk terkait jadi uncategorized)
+
+    Tampil jumlah produk per kategori
+
+5. MANAJEMEN USERS
+
+File: modules/admin/users.php
+
+Fitur CRUD:
+Aksi	Keterangan
+Create	Tambah user baru (username, email, password, role)
+Read	Filter by role, status, search
+Update	Edit user via modal, ganti password opsional
+Quick Toggle	Blokir/Aktifkan user 1 klik
+Quick Role	Ganti role (admin/kasir/pembeli)
+Delete	Soft delete jika ada pesanan, hard delete jika tidak
+
+Role:
+
+    admin - Akses penuh
+
+    kasir - Hanya akses modul kasir
+
+    pembeli - Hanya akses frontend
+
+Keamanan:
+
+    Tidak bisa blokir/hapus diri sendiri
+
+    Tidak bisa ubah role sendiri
+
+    Admin utama tidak bisa dihapus
+
+6. MANAJEMEN PROMO
+
+File: modules/admin/promos.php
+
+Fitur:
+
+    Tambah promo (kode, tipe diskon, nilai, periode, batas penggunaan)
+
+    Tipe diskon: Persentase (%) atau Nominal (Rp)
+
+    Minimal pembelian
+
+    Periode aktif (tanggal mulai - tanggal berakhir)
+
+    Tracking penggunaan (usage count)
+
+    Status: Aktif / Nonaktif / Kadaluarsa
+
+7. MANAJEMEN REVIEW
+
+File: modules/admin/reviews.php
+
+Fitur:
+
+    Lihat semua review dari pembeli
+
+    Filter: Semua / Pending / Approved
+
+    Approve review (tampil di website)
+
+    Unapprove review (sembunyikan)
+
+    Hapus review
+
+    Statistik: Total review, pending, rata-rata rating
+
+8. LAPORAN
+
+File: modules/admin/reports.php
+
+Fitur:
+
+    Filter periode: Hari ini / Kemarin / Minggu ini / Bulan ini / Custom
+
+    Ringkasan penjualan (total order, pendapatan, diskon)
+
+    Grafik penjualan 7 hari terakhir
+
+    Status pesanan (progress bar)
+
+    Metode pembayaran
+
+    Produk terlaris
+
+    Print laporan
+
+9. METODE PEMBAYARAN
+
+File: modules/admin/payment-methods.php
+
+Fitur:
+
+    Tambah metode: Bank, QRIS, Cash, E-Wallet
+
+    Input nomor rekening & atas nama
+
+    Upload gambar QRIS
+
+    Instruksi pembayaran
+
+    Urutan tampilan (sort order)
+
+    Aktif/Nonaktifkan metode
+
+10. PENGATURAN
+
+File: modules/admin/settings.php
+
+Fitur:
+
+    Nama toko, email, telepon, alamat
+
+    Jam operasional
+
+    Deskripsi toko
+
+    Mata uang
+
+    Persentase pajak
+
+    Minimal order
+
+11. NOTIFIKASI
+
+File: modules/admin/notifications.php
+
+Fitur:
+
+    Lihat semua notifikasi
+
+    Tandai sudah dibaca
+
+    Tandai semua dibaca
+
+    Hapus notifikasi
+
+    Badge unread di sidebar
+
+💳 DOKUMENTASI PANEL KASIR
+Akses Kasir
+text
+
+URL: http://localhost/kayumanies/modules/auth/login.php
+Username: admin (atau user dengan role kasir)
+Password: admin123
+Role: kasir / admin
+
+1. DASHBOARD KASIR
+
+File: modules/kasir/dashboard.php
+
+Tampilan 4 Kolom Status:
+Kolom	Keterangan	Aksi
+Verifikasi Pembayaran	Pesanan yang belum bayar	Konfirmasi Bayar → Status jadi "processing"
+Perlu Diproses	Sudah bayar, menunggu proses	Mulai Proses → Status jadi "processing"
+Sedang Diproses	Dalam pengerjaan	Siap Diambil → Status jadi "ready"
+Siap Diambil	Sudah jadi, tinggal ambil	Selesaikan → Status jadi "completed"
+
+Fitur:
+
+    Filter tanggal (bisa lihat riwayat hari lain)
+
+    Statistik real-time
+
+    Klik card pesanan untuk detail
+
+    Form aksi di setiap card
+
+    Auto refresh setiap 60 detik (hanya hari ini)
+
+    Flash message setelah aksi
+
+2. DAFTAR PESANAN
+
+File: modules/kasir/orders.php
+
+Fitur Filter:
+
+    Tanggal
+
+    Status pembayaran (Menunggu / Lunas)
+
+    Status pesanan (Pending / Processing / Ready / Completed / Cancelled)
+
+    Search (nomor pesanan / nama pelanggan)
+
+    Pagination
+
+Tabel menampilkan:
+
+    No. Pesanan
+
+    Nama & telepon pelanggan
+
+    Total pembayaran
+
+    Status pembayaran & pesanan
+
+    Jadwal pengambilan
+
+    Waktu pesan
+
+    Tombol Detail
+
+3. DETAIL PESANAN
+
+File: modules/kasir/order-detail.php
+
+Informasi yang ditampilkan:
+
+    Status pesanan & pembayaran
+
+    Metode pembayaran
+
+    Data pelanggan (nama, telepon, email)
+
+    Item pesanan (produk, harga, qty, subtotal)
+
+    Diskon & total
+
+    Catatan & promo code
+
+Aksi Kasir (sesuai status):
+Status Saat Ini	Aksi yang Tersedia
+Payment: Pending	Konfirmasi Pembayaran Cash
+Status: Pending + Paid	Mulai Proses
+Status: Processing	Siap Diambil
+Status: Ready	Selesaikan
+Semua (kecuali completed)	Batalkan Pesanan
+4. PROSES AKSI
+
+File: modules/kasir/process.php
+
+Action yang diproses:
+A. Konfirmasi Pembayaran
+text
+
+Input: order_id, payment_method
+Proses:
+  1. Validasi pesanan belum dibayar
+  2. Validasi stok produk mencukupi
+  3. Update payment_status = 'paid'
+  4. Update order_status = 'processing'
+  5. Insert ke tabel payments
+  6. Kurangi stok produk
+  7. Kirim notifikasi ke user
+  8. Catat activity log
+
+B. Update Status
+text
+
+Input: order_id, new_status
+Proses:
+  1. Validasi flow status (tidak bisa mundur)
+  2. Validasi pesanan sudah dibayar
+  3. Update order_status
+  4. Jika cancelled → kembalikan stok
+  5. Kirim notifikasi ke user
+  6. Catat activity log
+
+Flow Status:
+text
+
+pending → processing → ready → completed
+    ↓          ↓          ↓
+  cancelled  cancelled  cancelled
+
+5. STRUK PEMBAYARAN
+
+File: modules/kasir/receipt.php
+
+Fitur:
+
+    Tampilan struk siap print
+
+    Auto-print saat halaman dibuka
+
+    Informasi: nomor pesanan, kasir, item, total, metode bayar
+
+    Tombol kembali ke detail/daftar pesanan
+
+TUGAS KASIR (Ringkasan)
+
+    Verifikasi Pembayaran - Konfirmasi pembayaran dari pembeli yang datang
+
+    Update Status - Ubah status pesanan sesuai progress
+
+    Cetak Struk - Print bukti pembayaran
+
+    Batalkan Pesanan - Jika diperlukan (stok otomatis kembali)
+
+Kasir TIDAK:
+
+    ❌ Membuat pesanan baru (itu pembeli via website)
+
+    ❌ Mengelola produk/kategori (itu admin)
+
+    ❌ Mengelola user (itu admin)
+
+    ❌ POS / Keranjang belanja (bukan toko fisik)
+
+PERBEDAAN ADMIN vs KASIR
+Fitur	Admin	Kasir
+Dashboard	✅ Lengkap	✅ 4 kolom status
+Kelola Produk	✅	❌
+Kelola Kategori	✅	❌
+Kelola Users	✅	❌
+Kelola Promo	✅	❌
+Kelola Review	✅	❌
+Laporan	✅	❌
+Pengaturan	✅	❌
+Metode Bayar	✅	❌
+Verifikasi Bayar	✅	✅
+Update Status	✅	✅
+Cetak Struk	✅	✅
+Lihat Pesanan	✅	✅
+SHORTCUT & TIPS
+Admin:
+
+    Sidebar menampilkan badge jumlah pending orders
+
+    Klik logo di sidebar untuk kembali ke dashboard
+
+    Gunakan filter di tabel untuk pencarian cepat
+
+    Modal form bisa ditutup dengan ESC
+
+Kasir:
+
+    Dashboard auto-refresh setiap 60 detik (hari ini)
+
+    Klik card pesanan untuk detail lengkap
+
+    Filter tanggal untuk lihat riwayat
+
+    Sidebar menampilkan badge real-time
+
+    Semua aksi dicatat di activity_log

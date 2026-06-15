@@ -1,0 +1,111 @@
+{
+  "name": "Kayumanies Cake Shop",
+  "short_name": "Kayumanies",
+  "description": "Toko Kue Premium - Pesan kue lezat dengan mudah",
+  "start_url": "/kayumanies/",
+  "scope": "/kayumanies/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#FFF8F0",
+  "theme_color": "#8B4513",
+  "lang": "id-ID",
+  "dir": "ltr",
+  "categories": ["food", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/images/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Produk",
+      "short_name": "Produk",
+      "description": "Lihat semua produk",
+      "url": "/kayumanies/modules/pembeli/products.php",
+      "icons": [{ "src": "assets/images/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Keranjang",
+      "short_name": "Keranjang",
+      "description": "Lihat keranjang belanja",
+      "url": "/kayumanies/modules/pembeli/cart.php",
+      "icons": [{ "src": "assets/images/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Pesanan Saya",
+      "short_name": "Pesanan",
+      "description": "Lihat pesanan saya",
+      "url": "/kayumanies/modules/pembeli/orders.php",
+      "icons": [{ "src": "assets/images/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "iarc_rating_id": ""
+}

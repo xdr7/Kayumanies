@@ -1,0 +1,16 @@
+RELASI TABEL:
+Tabel	Relasi	Keterangan
+products → categories			N:1	Satu kategori punya banyak produk
+cart → users					N:1	Satu user punya banyak item keranjang
+cart → products					N:1	Satu produk bisa ada di banyak keranjang
+orders → users					N:1	Satu user bisa punya banyak pesanan
+orders → users (cashier)		N:1	Satu kasir proses banyak pesanan
+order_details → orders			N:1	Satu pesanan punya banyak item
+order_details → products		N:1	Satu produk bisa di banyak pesanan
+payments → orders				1:1	Satu pesanan punya satu pembayaran
+payments → users (verifier)		N:1	Satu kasir verifikasi banyak bayar
+reviews → users					N:1	Satu user bisa review banyak produk
+reviews → products				N:1	Satu produk punya banyak review
+reviews → orders				N:1	Review terkait pesanan tertentu
+notifications → users			N:1	Satu user punya banyak notifikasi
+activity_log → users			N:1	Log aktivitas user

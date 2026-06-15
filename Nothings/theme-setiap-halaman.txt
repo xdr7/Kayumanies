@@ -1,0 +1,18 @@
+Tidak ada yang perlu diubah. File includes/theme.php sudah sempurna:
+
+    ✅ Ada default values (fallback)
+
+    ✅ Query database untuk ambil theme settings
+
+    ✅ Override CSS variables dengan <style> tag
+
+    ✅ Semua warna primer, footer, radius, font ada
+
+Tinggal pastikan dipanggil di semua halaman frontend sebelum pembeli.css:
+php
+
+<?php require_once __DIR__ . '/includes/theme.php'; // Root ?>
+<?php require_once __DIR__ . '/../../includes/theme.php'; // Subfolder ?>
+
+🔥
+tempelkan untuk theme di setiap halaman

@@ -1,0 +1,33 @@
+# ============================================
+# KAYUMANIES - Config Protection
+# ============================================
+
+# Deny all access
+Order deny,allow
+Deny from all
+
+# Allow only local
+Allow from 127.0.0.1
+Allow from ::1
+Allow from 192.168.0.0/16
+Allow from 10.0.0.0/8
+Allow from 172.16.0.0/12
+
+# Protect database file
+<FilesMatch "database\.php$">
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from localhost
+</FilesMatch>
+
+<FilesMatch "installed\.lock$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Disable PHP execution
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>

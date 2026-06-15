@@ -1,0 +1,17 @@
+# ============================================
+# KAYUMANIES - API Protection
+# ============================================
+
+# Only allow POST and GET
+<LimitExcept GET POST>
+    Order deny,allow
+    Deny from all
+</LimitExcept>
+
+# Set JSON content type
+<IfModule mod_headers.c>
+    Header set Content-Type "application/json; charset=utf-8"
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes

@@ -1,0 +1,16 @@
+# ============================================
+# KAYUMANIES - Database Folder Protection
+# ============================================
+
+# Deny all
+Order deny,allow
+Deny from all
+
+# Only allow .sql files for import
+<FilesMatch "\.sql$">
+    Order allow,deny
+    Allow from 127.0.0.1
+    Allow from ::1
+</FilesMatch>
+
+Options -Indexes

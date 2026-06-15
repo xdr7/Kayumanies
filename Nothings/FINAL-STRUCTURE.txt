@@ -1,0 +1,56 @@
+kayumanies/
+├── index.php                    ✅ Landing page
+├── install.php                  ✅ Auto installer
+├── manifest.json                ✅ PWA manifest
+├── service-worker.js            ✅ PWA service worker
+├── offline.php                  ✅ Halaman offline
+├── .htaccess                    ✅ Konfigurasi server
+│
+├── assets/
+│   ├── css/
+│   │   ├── admin.css           ✅ CSS admin panel
+│   │   ├── kasir.css           ✅ CSS kasir panel
+│   │   └── pembeli.css         ✅ CSS frontend
+│   ├── js/
+│   │   └── pembeli.js          ✅ JS frontend
+│   └── uploads/
+│       ├── products/           ✅ Gambar produk
+│       └── payments/           ✅ QRIS & bukti bayar
+│
+├── config/
+│   └── database.php            ✅ Konfigurasi database
+│
+├── includes/
+│   ├── navbar.php              ✅ Navigasi frontend
+│   ├── functions.php           ✅ Helper functions
+│   └── pwa.php                 ✅ PWA all-in-one
+│
+├── modules/
+│   ├── admin/                  ✅ Panel admin (13 file)
+│   ├── kasir/                  ✅ Panel kasir (7 file)
+│   ├── auth/                   ✅ Login/register
+│   └── pembeli/                ✅ Belanja/checkout
+│
+└── api/
+    ├── cart_api.php            ✅ API keranjang
+    └── product_api.php         ✅ API produk
+	
+	Fitur Lengkap:
+
+    ✅ Multi-user (Admin, Kasir, Pembeli)
+
+    ✅ CRUD Produk, Kategori, Promo
+
+    ✅ Manajemen Users & Review
+
+    ✅ Order processing (pending → ready → completed)
+
+    ✅ Verifikasi pembayaran kasir
+
+    ✅ Laporan penjualan
+
+    ✅ Metode pembayaran (Bank, QRIS, Cash)
+
+    ✅ PWA ready (installable, offline)
+
+    ✅ Responsive (Desktop, Tablet, Mobile)

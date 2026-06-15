@@ -1,0 +1,13 @@
+# ============================================
+# KAYUMANIES - Includes Protection
+# ============================================
+
+# Deny direct access
+Order deny,allow
+Deny from all
+
+# Allow only from local
+Allow from 127.0.0.1
+Allow from ::1
+
+Options -Indexes

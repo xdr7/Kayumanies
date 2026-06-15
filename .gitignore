@@ -1,0 +1,58 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Uploads (keep structure, ignore files)
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# Config (keep template, ignore actual)
+config/database.php
+config/development.php
+!config/database.example.php
+!config/development.example.php
+
+# Database
+database/*.sql
+!database/kayumanies_db.sql
+
+# Security
+*.key
+*.pem
+*.cert
+security-test.php
+
+# Temp
+tmp/
+temp/
+*.tmp
+
+# Git
+.gitattributes

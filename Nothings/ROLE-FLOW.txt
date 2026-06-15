@@ -1,0 +1,9 @@
+┌─────────┐     ┌─────────┐     ┌──────────┐
+│ PEMBELI │────▶│  KASIR  │────▶│  ADMIN   │
+└────┬────┘     └────┬────┘     └────┬─────┘
+     │               │               │
+     ▼               ▼               ▼
+  Pesan via     Verifikasi      Kelola semua
+  website       pembayaran      (CRUD master)
+  Checkout      Update status   Laporan
+  Upload bukti  Cetak struk     Pengaturan

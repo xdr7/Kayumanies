@@ -1,0 +1,47 @@
+# ============================================
+# KAYUMANIES - ROOT .htaccess
+# ============================================
+
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /kayumanies/
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Handle API
+RewriteRule ^api/(.*)$ api/$1 [QSA,L]
+
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Directory
+DirectoryIndex index.php index.html
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Cache
+<FilesMatch "\.(css|js|ico|svg|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>
+
+# Block sensitive files
+<FilesMatch "\.(env|sql|md|log|lock|bak)$">
+    Deny from all
+</FilesMatch>
+
+# Protect PWA files
+<FilesMatch "^(manifest\.json|service-worker\.js)$">
+    Header set Cache-Control "no-cache"
+</FilesMatch>

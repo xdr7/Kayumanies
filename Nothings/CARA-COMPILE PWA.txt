@@ -1,0 +1,145 @@
+CARA COMPILE PWA KE MOBILE (ANDROID/iOS)
+METODE 1: LANGSUNG DARI BROWSER (Termudah)
+
+Android (Chrome):
+
+    Buka website di Chrome Android
+
+    Klik menu ⋮ → "Add to Home Screen" / "Tambahkan ke Layar Utama"
+
+    Klik Install
+
+    Aplikasi muncul di home screen seperti app native
+
+iPhone (Safari):
+
+    Buka website di Safari
+
+    Klik tombol Share (kotak panah atas)
+
+    Scroll → "Add to Home Screen"
+
+    Klik Add
+
+METODE 2: BUBBLEWRAP (APK Generator)
+
+Website: https://www.pwabuilder.com/
+
+Langkah:
+
+    Buka https://www.pwabuilder.com
+
+    Masukkan URL website kamu (harus online)
+
+    Klik Start
+
+    Download package yang dihasilkan
+
+    Dapat file .apk siap install
+
+METODE 3: PWA2APK (Local Tool)
+
+Install dulu:
+bash
+
+npm install -g pwa2apk
+
+Jalankan:
+bash
+
+pwa2apk https://namadomain.com/kayumanies/
+
+METODE 4: TRUSTED WEB ACTIVITY (TWA) - Recomended
+
+Ini bikin PWA jadi APK real yang bisa upload ke Play Store.
+
+Buat project Android dengan Android Studio:
+
+1. Clone template:
+bash
+
+git clone https://github.com/GoogleChrome/android-browser-helper.git
+
+2. Edit file app/build.gradle:
+gradle
+
+android {
+    defaultConfig {
+        applicationId "com.kayumanies.app"
+        minSdkVersion 19
+        targetSdkVersion 33
+    }
+}
+
+3. Edit app/src/main/res/values/strings.xml:
+xml
+
+<resources>
+    <string name="appName">Kayumanies Cake Shop</string>
+    <string name="launcherName">Kayumanies</string>
+    <string name="hostName">namadomain.com</string>
+    <string name="url">https://namadomain.com/kayumanies/</string>
+</resources>
+
+4. Edit AndroidManifest.xml:
+xml
+
+<activity android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
+    android:label="@string/launcherName">
+    <meta-data android:name="android.support.customtabs.trusted.DEFAULT_URL"
+        android:value="@string/url" />
+    <meta-data android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+        android:resource="@color/colorPrimary" />
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+
+5. Build APK:
+bash
+
+./gradlew assembleRelease
+
+APK ada di app/build/outputs/apk/release/
+METODE 5: CAPACITOR (Ionic/Cordova)
+
+Install:
+bash
+
+npm install -g @capacitor/cli @capacitor/core
+npm install @capacitor/android @capacitor/ios
+
+Init project:
+bash
+
+npx cap init Kayumanies com.kayumanies.app
+npx cap add android
+npx cap add ios
+
+Copy file website ke www/ folder, lalu:
+bash
+
+npx cap sync
+npx cap open android    # Buka di Android Studio
+npx cap open ios        # Buka di Xcode
+
+METODE 6: HOSTING DULU, BARU COMPILE
+
+    Upload semua file ke hosting (punya domain)
+
+    Install SSL (HTTPS wajib untuk PWA)
+
+    Pastikan manifest.json bisa diakses
+
+    Pastikan service-worker.js terdaftar
+
+    Buka di Chrome Android → auto muncul install prompt
+
+CEKLIST SEBELUM COMPILE:
+Syarat	Status
+Website online (HTTPS)	⬜
+manifest.json valid	⬜
+service-worker.js aktif	⬜
+Icons 192x192 & 512x512	⬜
+Responsive mobile	⬜
