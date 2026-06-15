@@ -122,6 +122,6 @@ Didistribusikan di bawah lisensi **MIT License**. Lihat file `LICENSE` untuk inf
 
 ## 📞 Kontak
 
-- **Email**: [asmaul.subegi@example.com](mailto:asmaul.subegi@example.com)
+- **Email**: [asmaul.subegi@example.com](mailto:sabayonx@gmail.com)
 - **Universitas**: [Universitas Mulawarman](https://unmul.ac.id)
 - **Lokasi**: Samarinda, Kalimantan Timur, Indonesia
