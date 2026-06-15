@@ -19,7 +19,7 @@ Terima kasih atas minat Anda untuk berkontribusi pada platform Kayumanies! Berik
 
 ## Pelaporan Bug
 
-Laporkan bug melalui [Issues](https://github.com/[username]/kayumanies/issues) dengan menyertakan:
+Laporkan bug melalui [Issues](https://github.com/xdr7/Kayumanies/issues) dengan menyertakan:
 - Deskripsi bug
 - Langkah untuk mereproduksi
 - Screenshot (jika ada)

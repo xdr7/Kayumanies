@@ -1,6 +1,6 @@
-# 🍰 Kayumanies - Platform Toko Kue Online Multi-Toko
+# 🍰 Kayumanies - Sistem Informasi Toko Kue Online
 
-**Kayumanies** adalah platform toko kue *online* dengan sistem **multi-toko** (multi-vendor) yang memungkinkan banyak penjual kue untuk bergabung dan menjual produk mereka dalam satu platform terpadu. Dibangun sebagai riset mandiri untuk mengembangkan solusi e-commerce yang modern, responsif, dan mudah digunakan.
+**Kayumanies** adalah sistem informasi toko kue *online* yang dibangun dengan arsitektur **multi-level user** — **Admin**, **Kasir**, dan **Pembeli**. Setiap level memiliki hak akses dan tampilan antarmuka yang berbeda sesuai dengan perannya masing-masing. Dibangun sebagai riset mandiri untuk mengembangkan solusi e-commerce yang modern, responsif, dan mudah digunakan.
 
 ---
 
