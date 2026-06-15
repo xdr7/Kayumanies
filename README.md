@@ -17,6 +17,20 @@
 
 ---
 
+## 📸 Tampilan Aplikasi
+
+### Desktop View
+![Desktop Screenshot](assets/images/screenshot-desktop.png)
+*Tampilan desktop Kayumanies — navigasi lengkap, hero section, kategori, dan produk unggulan*
+
+### Mobile / PWA View
+![Mobile Screenshot](assets/images/screenshot-mobile.png)
+*Tampilan mobile Kayumanies — dioptimalkan untuk perangkat sentuh dengan bottom navigation*
+
+> Kayumanies mendukung **Progressive Web App (PWA)** sehingga dapat diinstal langsung ke perangkat mobile dan desktop seperti aplikasi native.
+
+---
+
 ## 🏗️ Arsitektur Sistem
 
 ```
@@ -61,8 +75,8 @@ kayumanies/
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/[username]/kayumanies.git
-   cd kayumanies
+   git clone https://github.com/xdr7/Kayumanies.git
+   cd Kayumanies
    ```
 
 2. **Import database**
