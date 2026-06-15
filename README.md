@@ -123,6 +123,6 @@ Didistribusikan di bawah lisensi **MIT License**. Lihat file `LICENSE` untuk inf
 ## 📞 Kontak
 
 - **Email**: [sabayonx@gmail.com](mailto:sabayonx@gmail.com)
-- **LinkedIn**: [Asmaul Asni](https://linkedin.com/in/asmaul-asni)
+- **LinkedIn**: [Asmaul Asni](https://www.linkedin.com/in/asmaul-asni-aa5aba7a/)
 - **Universitas**: [Universitas Mulawarman](https://unmul.ac.id)
 - **Lokasi**: Samarinda, Kalimantan Timur, Indonesia
