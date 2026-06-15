@@ -19,13 +19,21 @@
 
 ## 📸 Tampilan Aplikasi
 
-### Desktop View
-![Desktop Screenshot](assets/images/screenshot-desktop.png)
-*Tampilan desktop Kayumanies — navigasi lengkap, hero section, kategori, dan produk unggulan*
+### 🏠 Halaman Utama (Pembeli)
+![Halaman Utama Kayumanies](assets/images/Screenshot%202026-06-15%20at%2012-46-56%20Kayumanies%20-%20Premium%20Cake%20Shop.png)
+*Tampilan utama Kayumanies — hero section, kategori produk, dan produk unggulan*
 
-### Mobile / PWA View
-![Mobile Screenshot](assets/images/screenshot-mobile.png)
-*Tampilan mobile Kayumanies — dioptimalkan untuk perangkat sentuh dengan bottom navigation*
+### 🛒 Dashboard Pembeli
+![Dashboard Pembeli](assets/images/Screenshot%202026-06-15%20at%2012-49-39%20Dashboard%20-%20Kayumanies.png)
+*Dashboard pembeli — histori pesanan, status, dan detail transaksi*
+
+### ⚙️ Dashboard Admin
+![Dashboard Admin](assets/images/Screenshot%202026-06-15%20at%2012-48-05%20Dashboard%20Admin%20-%20Kayumanies.png)
+*Panel admin — manajemen produk, kategori, pesanan, dan pengguna*
+
+### 💰 Dashboard Kasir
+![Dashboard Kasir](assets/images/Screenshot%202026-06-15%20at%2012-48-47%20Dashboard%20Kasir%20-%20Kayumanies.png)
+*Panel kasir — transaksi penjualan dan manajemen pesanan*
 
 > Kayumanies mendukung **Progressive Web App (PWA)** sehingga dapat diinstal langsung ke perangkat mobile dan desktop seperti aplikasi native.
 
